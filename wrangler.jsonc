@@ -19,6 +19,11 @@
 			"bucket_name": "pluginsforemdash-media"
 		}
 	],
+	// Observability
+	"observability": {
+		"enabled": true
+	},
+
 	// Environment variables (set secrets via wrangler secret)
 	"vars": {
 		"SITE_URL": "https://pluginsforemdash.com"
