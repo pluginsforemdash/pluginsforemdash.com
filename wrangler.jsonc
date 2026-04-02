@@ -6,7 +6,7 @@
   // D1 Database
   "d1_databases": [
     {
-      "binding": "pluginsforemdash_db",
+      "binding": "DB",
       "database_name": "pluginsforemdash-db",
       "database_id": "24b67eee-1876-49a1-9153-1040eef448cf"
     }
@@ -15,7 +15,7 @@
   // R2 Storage (media uploads)
   "r2_buckets": [
     {
-      "binding": "pluginsforemdash_media",
+      "binding": "MEDIA",
       "bucket_name": "pluginsforemdash-media"
     }
   ],
