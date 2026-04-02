@@ -445,14 +445,14 @@ Before publishing, make sure you are logged in to npm:
 npm login
 ```
 
-### Publish emdash-plugin-leads
+### Publish emdash-plugin-forms
 
 ```bash
-cd /home/hamoudy/Desktop/emdash-plugin-leads
+cd /home/hamoudy/Desktop/emdash-plugin-forms
 npm publish
 ```
 
-This publishes `emdash-plugin-leads@0.2.0`.
+This publishes `emdash-plugin-forms@0.2.0`.
 
 ### Publish emdash-plugin-commerce
 
@@ -495,11 +495,11 @@ npm install
 Users of the plugins will install with:
 
 ```bash
-npm install emdash-plugin-leads emdash-plugin-commerce
+npm install emdash-plugin-forms emdash-plugin-commerce
 ```
 
 - [ ] Logged in to npm
-- [ ] `emdash-plugin-leads` published
+- [ ] `emdash-plugin-forms` published
 - [ ] `emdash-plugin-commerce` published
 - [ ] Site `package.json` updated to use published packages (not `file:` references)
 
