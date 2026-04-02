@@ -1,0 +1,35 @@
+{
+  "name": "pluginsforemdash",
+  "compatibility_date": "2025-04-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // D1 Database
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pluginsforemdash-db",
+      "database_id": "<YOUR_D1_DATABASE_ID>"
+    }
+  ],
+
+  // R2 Storage (media uploads)
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "bucket_name": "pluginsforemdash-media"
+    }
+  ],
+
+  // KV Namespace (sessions)
+  "kv_namespaces": [
+    {
+      "binding": "SESSIONS",
+      "id": "<YOUR_KV_NAMESPACE_ID>"
+    }
+  ],
+
+  // Environment variables (set secrets via wrangler secret)
+  "vars": {
+    "SITE_URL": "https://pluginsforemdash.com"
+  }
+}
