@@ -111,7 +111,11 @@ export const prerender = false;
 			}).then(r => r.json());
 
 		// Fetch products client-side
-		fetch("/_emdash/api/plugins/commerce/storefront/products?limit=10")
+		fetch("/_emdash/api/plugins/commerce/storefront/products", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ limit: 10 }),
+			})
 			.then(r => r.json())
 			.then(data => {
 				const products = data.items ?? [];
