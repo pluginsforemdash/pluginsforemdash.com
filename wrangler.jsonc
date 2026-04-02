@@ -19,13 +19,6 @@
 			"bucket_name": "pluginsforemdash-media"
 		}
 	],
-	// KV Namespace (sessions)
-	"kv_namespaces": [
-		{
-			"binding": "SESSIONS",
-			"id": "b81229deb2aa418681f7aa4e633c4c71"
-		}
-	],
 	// Environment variables (set secrets via wrangler secret)
 	"vars": {
 		"SITE_URL": "https://pluginsforemdash.com"
