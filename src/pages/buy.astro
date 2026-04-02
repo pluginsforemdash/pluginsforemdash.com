@@ -118,7 +118,7 @@ export const prerender = false;
 			})
 			.then(r => r.json())
 			.then(data => {
-				const products = data.items ?? [];
+				const products = data?.data?.items ?? data?.items ?? [];
 				document.getElementById("loading").classList.add("hidden");
 
 				if (products.length === 0) {
