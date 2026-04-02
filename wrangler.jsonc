@@ -6,16 +6,16 @@
   // D1 Database
   "d1_databases": [
     {
-      "binding": "DB",
+      "binding": "pluginsforemdash_db",
       "database_name": "pluginsforemdash-db",
-      "database_id": "<YOUR_D1_DATABASE_ID>"
+      "database_id": "24b67eee-1876-49a1-9153-1040eef448cf"
     }
   ],
 
   // R2 Storage (media uploads)
   "r2_buckets": [
     {
-      "binding": "MEDIA",
+      "binding": "pluginsforemdash_media",
       "bucket_name": "pluginsforemdash-media"
     }
   ],
@@ -24,7 +24,7 @@
   "kv_namespaces": [
     {
       "binding": "SESSIONS",
-      "id": "<YOUR_KV_NAMESPACE_ID>"
+      "id": "b81229deb2aa418681f7aa4e633c4c71"
     }
   ],
 
