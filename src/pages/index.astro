@@ -68,7 +68,7 @@ import Layout from "../layouts/Layout.astro";
 				<p class="mt-4 text-lg text-text-secondary">Everything you need to turn your EmDash site into a business platform.</p>
 			</div>
 
-			<div class="mt-16 grid gap-8 sm:grid-cols-2">
+			<div class="mt-16 grid gap-8 lg:grid-cols-2">
 				<!-- Commerce -->
 				<div class="rounded-2xl border border-border-default bg-surface-raised p-8 transition-all hover:border-green-500/50 sm:col-span-2">
 					<div class="sm:flex sm:gap-8">
@@ -118,27 +118,6 @@ import Layout from "../layouts/Layout.astro";
 						<li class="flex items-start gap-2"><span class="text-brand-400 mt-1">&#10003;</span> Webhook forwarding &amp; CSV export</li>
 						<li class="flex items-start gap-2"><span class="text-brand-400 mt-1">&#10003;</span> Email notifications</li>
 						<li class="flex items-start gap-2"><span class="text-brand-400 mt-1">&#10003;</span> Pro CRM: lead pipeline &amp; scoring</li>
-					</ul>
-				</div>
-
-				<!-- Helpdesk -->
-				<div class="rounded-2xl border border-border-default bg-surface-raised p-8 transition-all hover:border-orange-500/50">
-					<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400">
-						<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-					</div>
-					<div class="mb-2 flex items-center gap-2">
-						<h3 class="text-xl font-semibold">Helpdesk</h3>
-						<span class="rounded-full bg-orange-500/10 px-2 py-0.5 text-xs font-medium text-orange-400">Coming Soon</span>
-					</div>
-					<p class="mb-6 text-text-secondary">
-						A full ticket system inside EmDash. Public submission, SLA tracking, agent assignment, and resolution metrics.
-					</p>
-					<ul class="space-y-2 text-sm text-text-secondary">
-						<li class="flex items-start gap-2"><span class="text-orange-400 mt-1">&#10003;</span> Public ticket submission</li>
-						<li class="flex items-start gap-2"><span class="text-orange-400 mt-1">&#10003;</span> Priority levels &amp; SLA tracking</li>
-						<li class="flex items-start gap-2"><span class="text-orange-400 mt-1">&#10003;</span> Agent assignment &amp; internal notes</li>
-						<li class="flex items-start gap-2"><span class="text-orange-400 mt-1">&#10003;</span> Email notifications on updates</li>
-						<li class="flex items-start gap-2"><span class="text-orange-400 mt-1">&#10003;</span> Resolution metrics &amp; reporting</li>
 					</ul>
 				</div>
 			</div>
@@ -418,10 +397,6 @@ export default defineConfig(&#123;
 				<div>
 					<h3 class="font-semibold">Do the plugins work outside Cloudflare?</h3>
 					<p class="mt-2 text-text-secondary">Yes. EmDash runs on any Node.js server with SQLite. Our plugins use the standard plugin API and work everywhere EmDash runs.</p>
-				</div>
-				<div>
-					<h3 class="font-semibold">When are the Helpdesk and Customer Service plugins coming?</h3>
-					<p class="mt-2 text-text-secondary">We're building them now. Pro subscribers get early access.</p>
 				</div>
 			</div>
 		</div>
