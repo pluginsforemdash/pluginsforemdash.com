@@ -198,10 +198,11 @@ export const prerender = false;
 						},
 					});
 
-					if (result.checkoutUrl) {
-						window.location.href = result.checkoutUrl;
+					const checkout = result?.data ?? result;
+					if (checkout.checkoutUrl) {
+						window.location.href = checkout.checkoutUrl;
 					} else {
-						errorDiv.textContent = result.error || "Checkout failed. Please try again.";
+						errorDiv.textContent = checkout.error || result.error?.message || "Checkout failed. Please try again.";
 						errorDiv.classList.remove("hidden");
 						btn.textContent = "Proceed to Payment";
 						btn.disabled = false;
