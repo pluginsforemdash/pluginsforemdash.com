@@ -150,7 +150,7 @@ import Layout from "../layouts/Layout.astro";
 					</span>
 					Commerce
 				</h3>
-				<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+				<div class="grid gap-6 sm:grid-cols-3">
 					<!-- Commerce Free -->
 					<div class="rounded-2xl border border-border-default bg-surface-raised p-6">
 						<h4 class="font-semibold">Free</h4>
@@ -169,26 +169,6 @@ import Layout from "../layouts/Layout.astro";
 						</ul>
 						<a href="https://github.com/pluginsforemdash/commerce" class="mt-6 block rounded-xl border border-border-default bg-surface py-2.5 text-center text-sm font-semibold text-text-primary hover:bg-surface-overlay transition-colors">
 							Install Free
-						</a>
-					</div>
-
-					<!-- Commerce Starter -->
-					<div class="rounded-2xl border border-border-default bg-surface-raised p-6">
-						<h4 class="font-semibold">Starter</h4>
-						<div class="mt-3 flex items-baseline gap-1">
-							<span class="text-3xl font-bold">$0</span>
-							<span class="text-text-muted">+ 1.5%</span>
-						</div>
-						<p class="mt-3 text-sm text-text-secondary">Managed Stripe Connect. No keys needed. No monthly fee.</p>
-						<ul class="mt-6 space-y-2 text-sm text-text-secondary">
-							<li class="flex items-start gap-2 text-text-primary font-medium"><span class="text-green-400">&#10003;</span> Everything in Free</li>
-							<li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> Stripe Connect (managed)</li>
-							<li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> No API key setup</li>
-							<li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> One-click onboarding</li>
-							<li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> Admin notifications</li>
-						</ul>
-						<a href="/buy" class="mt-6 block rounded-xl border border-border-default bg-surface py-2.5 text-center text-sm font-semibold text-text-primary hover:bg-surface-overlay transition-colors">
-							Get Started
 						</a>
 					</div>
 
@@ -404,7 +384,7 @@ export default defineConfig(&#123;
 				</div>
 				<div>
 					<h3 class="font-semibold">What's the difference between Commerce Pro and Pro Connect?</h3>
-					<p class="mt-2 text-text-secondary">Four tiers. Free ($0) uses your own Stripe keys. Starter ($0 + 1.5%) gives you managed Stripe Connect with no key setup and no monthly fee &mdash; great for getting started. Pro ($29/mo) adds customer emails, analytics, digital downloads, and more with your own keys and 0% fee. Pro Connect ($19/mo + 1.5%) has all Pro features with managed Stripe.</p>
+					<p class="mt-2 text-text-secondary">Three tiers. Free ($0) uses your own Stripe keys with no transaction fee. Pro ($29/mo) adds customer emails, analytics, digital downloads, and more &mdash; still your own keys, 0% fee. Pro Connect ($19/mo + 1.5%) has all Pro features with managed Stripe Connect &mdash; no key setup needed.</p>
 				</div>
 				<div>
 					<h3 class="font-semibold">Can I migrate from WooCommerce?</h3>

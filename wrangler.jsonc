@@ -1,9 +1,8 @@
 {
 	"name": "pluginsforemdash",
 	"compatibility_date": "2025-04-01",
-	"compatibility_flags": [
-		"nodejs_compat"
-	],
+	"compatibility_flags": ["nodejs_compat"],
+
 	// D1 Database
 	"d1_databases": [
 		{
@@ -12,6 +11,7 @@
 			"database_id": "24b67eee-1876-49a1-9153-1040eef448cf"
 		}
 	],
+
 	// R2 Storage (media uploads)
 	"r2_buckets": [
 		{
@@ -19,9 +19,22 @@
 			"bucket_name": "pluginsforemdash-media"
 		}
 	],
+
 	// Observability
 	"observability": {
-		"enabled": false
+		"enabled": false,
+		"head_sampling_rate": 1,
+		"logs": {
+			"enabled": true,
+			"head_sampling_rate": 1,
+			"persist": true,
+			"invocation_logs": true
+		},
+		"traces": {
+			"enabled": false,
+			"persist": true,
+			"head_sampling_rate": 1
+		}
 	},
 
 	// Environment variables (set secrets via wrangler secret)
