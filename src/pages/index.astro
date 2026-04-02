@@ -101,24 +101,34 @@ import Layout from "../layouts/Layout.astro";
 				</div>
 
 				<!-- Forms -->
-				<div class="rounded-2xl border border-border-default bg-surface-raised p-8 transition-all hover:border-brand-600/50">
-					<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-600/10 text-brand-400">
-						<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+				<div class="rounded-2xl border border-border-default bg-surface-raised p-8 transition-all hover:border-brand-600/50 lg:col-span-2">
+					<div class="sm:flex sm:gap-8">
+						<div class="sm:flex-1">
+							<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-600/10 text-brand-400">
+								<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+							</div>
+							<div class="mb-2 flex items-center gap-2">
+								<h3 class="text-xl font-semibold">Forms</h3>
+								<span class="rounded-full bg-green-500/10 px-2 py-0.5 text-xs font-medium text-green-400">Available Now</span>
+							</div>
+							<p class="mb-6 text-text-secondary">
+								Build forms, collect submissions, and optionally manage leads with a full CRM pipeline. Templates for contact, feedback, and newsletter forms.
+							</p>
+						</div>
+						<div class="sm:flex-1">
+							<ul class="space-y-2 text-sm text-text-secondary">
+								<li class="flex items-start gap-2"><span class="text-brand-400 mt-1">&#10003;</span> Form builder with templates</li>
+								<li class="flex items-start gap-2"><span class="text-brand-400 mt-1">&#10003;</span> Honeypot + Turnstile spam protection</li>
+								<li class="flex items-start gap-2"><span class="text-brand-400 mt-1">&#10003;</span> Webhook forwarding &amp; CSV export</li>
+								<li class="flex items-start gap-2"><span class="text-brand-400 mt-1">&#10003;</span> Email notifications</li>
+								<li class="flex items-start gap-2"><span class="text-brand-400 mt-1">&#10003;</span> Auto-responder emails (Pro)</li>
+							</ul>
+							<div class="mt-4 rounded-lg border border-border-subtle bg-surface p-3">
+								<p class="text-xs text-text-muted mb-1">Pro CRM features:</p>
+								<p class="text-sm text-text-secondary">Lead pipeline &middot; Lead scoring &middot; Team assignment &middot; Contact records &middot; Activity log &middot; Notes</p>
+							</div>
+						</div>
 					</div>
-					<div class="mb-2 flex items-center gap-2">
-						<h3 class="text-xl font-semibold">Forms</h3>
-						<span class="rounded-full bg-green-500/10 px-2 py-0.5 text-xs font-medium text-green-400">Available Now</span>
-					</div>
-					<p class="mb-6 text-text-secondary">
-						Build forms, collect submissions, and optionally manage leads with a full CRM pipeline. Templates for contact, feedback, and newsletter forms.
-					</p>
-					<ul class="space-y-2 text-sm text-text-secondary">
-						<li class="flex items-start gap-2"><span class="text-brand-400 mt-1">&#10003;</span> Form builder with templates</li>
-						<li class="flex items-start gap-2"><span class="text-brand-400 mt-1">&#10003;</span> Honeypot + Turnstile spam protection</li>
-						<li class="flex items-start gap-2"><span class="text-brand-400 mt-1">&#10003;</span> Webhook forwarding &amp; CSV export</li>
-						<li class="flex items-start gap-2"><span class="text-brand-400 mt-1">&#10003;</span> Email notifications</li>
-						<li class="flex items-start gap-2"><span class="text-brand-400 mt-1">&#10003;</span> Pro CRM: lead pipeline &amp; scoring</li>
-					</ul>
 				</div>
 			</div>
 		</div>
@@ -140,7 +150,7 @@ import Layout from "../layouts/Layout.astro";
 					</span>
 					Commerce
 				</h3>
-				<div class="grid gap-6 sm:grid-cols-3">
+				<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 					<!-- Commerce Free -->
 					<div class="rounded-2xl border border-border-default bg-surface-raised p-6">
 						<h4 class="font-semibold">Free</h4>
@@ -148,7 +158,7 @@ import Layout from "../layouts/Layout.astro";
 							<span class="text-3xl font-bold">$0</span>
 							<span class="text-text-muted">/forever</span>
 						</div>
-						<p class="mt-3 text-sm text-text-secondary">Full store with your own Stripe keys. No transaction fee.</p>
+						<p class="mt-3 text-sm text-text-secondary">Your own Stripe keys. No transaction fee.</p>
 						<ul class="mt-6 space-y-2 text-sm text-text-secondary">
 							<li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> Unlimited products &amp; orders</li>
 							<li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> Cart &amp; Stripe Checkout</li>
@@ -156,10 +166,29 @@ import Layout from "../layouts/Layout.astro";
 							<li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> Discount codes</li>
 							<li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> Inventory tracking</li>
 							<li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> Customer records</li>
-							<li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> Admin notifications</li>
 						</ul>
 						<a href="https://github.com/pluginsforemdash/commerce" class="mt-6 block rounded-xl border border-border-default bg-surface py-2.5 text-center text-sm font-semibold text-text-primary hover:bg-surface-overlay transition-colors">
 							Install Free
+						</a>
+					</div>
+
+					<!-- Commerce Starter -->
+					<div class="rounded-2xl border border-border-default bg-surface-raised p-6">
+						<h4 class="font-semibold">Starter</h4>
+						<div class="mt-3 flex items-baseline gap-1">
+							<span class="text-3xl font-bold">$0</span>
+							<span class="text-text-muted">+ 1.5%</span>
+						</div>
+						<p class="mt-3 text-sm text-text-secondary">Managed Stripe Connect. No keys needed. No monthly fee.</p>
+						<ul class="mt-6 space-y-2 text-sm text-text-secondary">
+							<li class="flex items-start gap-2 text-text-primary font-medium"><span class="text-green-400">&#10003;</span> Everything in Free</li>
+							<li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> Stripe Connect (managed)</li>
+							<li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> No API key setup</li>
+							<li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> One-click onboarding</li>
+							<li class="flex items-start gap-2"><span class="text-green-400">&#10003;</span> Admin notifications</li>
+						</ul>
+						<a href="/buy" class="mt-6 block rounded-xl border border-border-default bg-surface py-2.5 text-center text-sm font-semibold text-text-primary hover:bg-surface-overlay transition-colors">
+							Get Started
 						</a>
 					</div>
 
@@ -171,11 +200,11 @@ import Layout from "../layouts/Layout.astro";
 							<span class="text-3xl font-bold">$29</span>
 							<span class="text-text-muted">/month</span>
 						</div>
-						<p class="mt-3 text-sm text-text-secondary">Your own Stripe keys. 0% transaction fee. All Pro features.</p>
+						<p class="mt-3 text-sm text-text-secondary">Own Stripe keys. 0% fee. All Pro features.</p>
 						<ul class="mt-6 space-y-2 text-sm text-text-secondary">
 							<li class="flex items-start gap-2 text-text-primary font-medium"><span class="text-brand-400">&#10003;</span> Everything in Free</li>
 							<li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Customer order emails</li>
-							<li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Shipping confirmation emails</li>
+							<li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Shipping emails</li>
 							<li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Abandoned cart recovery</li>
 							<li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Analytics dashboard</li>
 							<li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Digital downloads</li>
@@ -193,13 +222,12 @@ import Layout from "../layouts/Layout.astro";
 							<span class="text-3xl font-bold">$19</span>
 							<span class="text-text-muted">/mo + 1.5%</span>
 						</div>
-						<p class="mt-3 text-sm text-text-secondary">Managed Stripe Connect. No keys to set up. All Pro features.</p>
+						<p class="mt-3 text-sm text-text-secondary">Managed Stripe. All Pro features. Lower monthly.</p>
 						<ul class="mt-6 space-y-2 text-sm text-text-secondary">
 							<li class="flex items-start gap-2 text-text-primary font-medium"><span class="text-brand-400">&#10003;</span> All Pro features</li>
 							<li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Stripe Connect (managed)</li>
 							<li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> No API key setup</li>
 							<li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> One-click onboarding</li>
-							<li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Lower monthly cost</li>
 							<li class="flex items-start gap-2"><span class="text-brand-400">&#10003;</span> Priority support</li>
 						</ul>
 						<a href="/buy" class="mt-6 block rounded-xl border border-border-default bg-surface py-2.5 text-center text-sm font-semibold text-text-primary hover:bg-surface-overlay transition-colors">
@@ -376,7 +404,7 @@ export default defineConfig(&#123;
 				</div>
 				<div>
 					<h3 class="font-semibold">What's the difference between Commerce Pro and Pro Connect?</h3>
-					<p class="mt-2 text-text-secondary">Same features. Pro ($29/mo) uses your own Stripe keys with 0% transaction fee &mdash; best for high-volume stores. Pro Connect ($19/mo + 1.5%) uses managed Stripe Connect with no key setup &mdash; best for getting started quickly or lower-volume stores.</p>
+					<p class="mt-2 text-text-secondary">Four tiers. Free ($0) uses your own Stripe keys. Starter ($0 + 1.5%) gives you managed Stripe Connect with no key setup and no monthly fee &mdash; great for getting started. Pro ($29/mo) adds customer emails, analytics, digital downloads, and more with your own keys and 0% fee. Pro Connect ($19/mo + 1.5%) has all Pro features with managed Stripe.</p>
 				</div>
 				<div>
 					<h3 class="font-semibold">Can I migrate from WooCommerce?</h3>
