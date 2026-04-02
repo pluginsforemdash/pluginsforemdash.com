@@ -17,7 +17,7 @@
     "astro": "^6.1.3",
     "better-sqlite3": "^12.8.0",
     "emdash": "^0.1.0",
-    "emdash-plugin-commerce": "file:../emdash-plugin-commerce",
+    "emdash-plugin-commerce": "https://github.com/pluginsforemdash/commerce/archive/refs/heads/main.tar.gz",
     "tailwindcss": "^4.2.2"
   }
 }
