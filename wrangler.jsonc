@@ -21,7 +21,10 @@
 	],
 	// Observability
 	"observability": {
-		"enabled": true
+		"logs": {
+			"enabled": false,
+			"invocation_logs": true
+		}
 	},
 
 	// Environment variables (set secrets via wrangler secret)
