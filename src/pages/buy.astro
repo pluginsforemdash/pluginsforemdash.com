@@ -1,0 +1,227 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+export const prerender = false;
+
+// Fetch products from the commerce plugin
+let products: any[] = [];
+try {
+	const res = await fetch(new URL("/_emdash/api/plugins/commerce/storefront/products?limit=10", Astro.url.origin));
+	if (res.ok) {
+		const data = await res.json();
+		products = data.items ?? [];
+	}
+} catch {
+	// Plugin not ready yet — show empty state
+}
+---
+
+<Layout
+	title="Buy a License — Plugins for EmDash"
+	description="Purchase Pro licenses for EmDash plugins. Commerce, Leads, and more."
+>
+	<nav class="border-b border-border-subtle bg-surface/80 backdrop-blur-xl">
+		<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+			<a href="/" class="flex items-center gap-2 text-lg font-bold">
+				<span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-sm font-black text-white">P</span>
+				PluginsforEmDash
+			</a>
+			<a href="/" class="text-sm text-text-secondary hover:text-text-primary transition-colors">Back to Home</a>
+		</div>
+	</nav>
+
+	<section class="py-20">
+		<div class="mx-auto max-w-4xl px-6">
+			<h1 class="text-3xl font-bold tracking-tight sm:text-4xl text-center">Choose your license</h1>
+			<p class="mt-4 text-center text-lg text-text-secondary">All plugins are free to use. Upgrade for premium features.</p>
+
+			<div id="products-grid" class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{products.length === 0 ? (
+					<div class="sm:col-span-3 text-center py-12">
+						<p class="text-text-muted">Store loading... Add products in the EmDash admin panel at <code class="text-brand-400">/_emdash/admin</code></p>
+					</div>
+				) : (
+					products.map((p: any) => (
+						<div class="rounded-2xl border border-border-default bg-surface-raised p-6 flex flex-col">
+							<h3 class="text-lg font-semibold">{p.name}</h3>
+							<p class="mt-2 text-sm text-text-secondary flex-1">{p.shortDescription || p.description}</p>
+							<div class="mt-4 flex items-baseline gap-1">
+								<span class="text-2xl font-bold">${(p.price / 100).toFixed(2)}</span>
+								<span class="text-text-muted">/month</span>
+							</div>
+							<button
+								data-product-id={p.id}
+								data-product-name={p.name}
+								data-product-price={p.price}
+								class="add-to-cart mt-4 rounded-xl bg-brand-600 py-2.5 text-center text-sm font-semibold text-white hover:bg-brand-500 transition-colors cursor-pointer"
+							>
+								Buy Now
+							</button>
+						</div>
+					))
+				)}
+			</div>
+
+			<!-- Cart / Checkout -->
+			<div id="checkout-section" class="mt-12 hidden">
+				<div class="rounded-2xl border-2 border-brand-600 bg-surface-raised p-8">
+					<h2 class="text-xl font-semibold mb-6">Checkout</h2>
+					<div id="cart-items" class="space-y-3 mb-6"></div>
+					<div class="border-t border-border-default pt-4 mb-6">
+						<div class="flex justify-between text-lg font-semibold">
+							<span>Total</span>
+							<span id="cart-total">$0.00</span>
+						</div>
+						<p class="text-sm text-text-muted mt-1">Billed monthly via Stripe</p>
+					</div>
+
+					<form id="checkout-form" class="space-y-4">
+						<div class="grid gap-4 sm:grid-cols-2">
+							<input name="name" placeholder="Full Name" required
+								class="rounded-lg border border-border-default bg-surface px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus:border-brand-600 focus:outline-none" />
+							<input name="email" type="email" placeholder="Email" required
+								class="rounded-lg border border-border-default bg-surface px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus:border-brand-600 focus:outline-none" />
+						</div>
+						<input name="line1" placeholder="Address" required
+							class="w-full rounded-lg border border-border-default bg-surface px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus:border-brand-600 focus:outline-none" />
+						<div class="grid gap-4 sm:grid-cols-3">
+							<input name="city" placeholder="City" required
+								class="rounded-lg border border-border-default bg-surface px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus:border-brand-600 focus:outline-none" />
+							<input name="state" placeholder="State" required
+								class="rounded-lg border border-border-default bg-surface px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus:border-brand-600 focus:outline-none" />
+							<input name="postalCode" placeholder="ZIP" required
+								class="rounded-lg border border-border-default bg-surface px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus:border-brand-600 focus:outline-none" />
+						</div>
+
+						<div id="checkout-error" class="hidden rounded-lg bg-red-500/10 border border-red-500/20 p-3 text-sm text-red-400"></div>
+
+						<button type="submit" id="checkout-btn"
+							class="w-full rounded-xl bg-brand-600 py-3 text-center font-semibold text-white shadow-lg shadow-brand-600/25 hover:bg-brand-500 transition-colors">
+							Proceed to Payment
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script is:inline>
+		const SESSION_KEY = "pfe_cart_session";
+		function getSessionId() {
+			let id = localStorage.getItem(SESSION_KEY);
+			if (!id) {
+				id = crypto.randomUUID();
+				localStorage.setItem(SESSION_KEY, id);
+			}
+			return id;
+		}
+
+		const sessionId = getSessionId();
+		const api = (route, body) =>
+			fetch(`/_emdash/api/plugins/commerce/${route}`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(body),
+			}).then(r => r.json());
+
+		let cartItems = [];
+
+		function updateCartUI() {
+			const section = document.getElementById("checkout-section");
+			const itemsDiv = document.getElementById("cart-items");
+			const totalSpan = document.getElementById("cart-total");
+
+			if (cartItems.length === 0) {
+				section.classList.add("hidden");
+				return;
+			}
+
+			section.classList.remove("hidden");
+			itemsDiv.innerHTML = cartItems.map(item => `
+				<div class="flex justify-between items-center">
+					<span class="text-sm">${item.name} <span class="text-text-muted">x${item.quantity}</span></span>
+					<span class="text-sm font-medium">$${((item.price * item.quantity) / 100).toFixed(2)}/mo</span>
+				</div>
+			`).join("");
+
+			const total = cartItems.reduce((s, i) => s + i.price * i.quantity, 0);
+			totalSpan.textContent = `$${(total / 100).toFixed(2)}/mo`;
+		}
+
+		// Add to cart buttons
+		document.querySelectorAll(".add-to-cart").forEach(btn => {
+			btn.addEventListener("click", async () => {
+				const productId = btn.dataset.productId;
+				btn.textContent = "Adding...";
+				btn.disabled = true;
+
+				const result = await api("storefront/cart/add", { sessionId, productId, quantity: 1 });
+
+				if (result.success) {
+					// Add to local state
+					const existing = cartItems.find(i => i.productId === productId);
+					if (existing) {
+						existing.quantity += 1;
+					} else {
+						cartItems.push({
+							productId,
+							name: btn.dataset.productName,
+							price: parseInt(btn.dataset.productPrice),
+							quantity: 1,
+						});
+					}
+					updateCartUI();
+					btn.textContent = "Added!";
+					setTimeout(() => { btn.textContent = "Buy Now"; btn.disabled = false; }, 1500);
+				} else {
+					btn.textContent = "Error";
+					setTimeout(() => { btn.textContent = "Buy Now"; btn.disabled = false; }, 2000);
+				}
+			});
+		});
+
+		// Checkout form
+		document.getElementById("checkout-form").addEventListener("submit", async (e) => {
+			e.preventDefault();
+			const form = e.target;
+			const btn = document.getElementById("checkout-btn");
+			const errorDiv = document.getElementById("checkout-error");
+			errorDiv.classList.add("hidden");
+
+			btn.textContent = "Processing...";
+			btn.disabled = true;
+
+			const fd = new FormData(form);
+
+			try {
+				const result = await api("storefront/checkout", {
+					sessionId,
+					customerEmail: fd.get("email"),
+					customerName: fd.get("name"),
+					shippingAddress: {
+						name: fd.get("name"),
+						line1: fd.get("line1"),
+						city: fd.get("city"),
+						state: fd.get("state"),
+						postalCode: fd.get("postalCode"),
+						country: "US",
+					},
+				});
+
+				if (result.checkoutUrl) {
+					window.location.href = result.checkoutUrl;
+				} else {
+					errorDiv.textContent = result.error || "Checkout failed. Please try again.";
+					errorDiv.classList.remove("hidden");
+					btn.textContent = "Proceed to Payment";
+					btn.disabled = false;
+				}
+			} catch (err) {
+				errorDiv.textContent = "Something went wrong. Please try again.";
+				errorDiv.classList.remove("hidden");
+				btn.textContent = "Proceed to Payment";
+				btn.disabled = false;
+			}
+		});
+	</script>
+</Layout>

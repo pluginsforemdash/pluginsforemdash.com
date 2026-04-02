@@ -1,0 +1,55 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout
+	title="Order Confirmed — Plugins for EmDash"
+	description="Your license purchase was successful."
+>
+	<nav class="border-b border-border-subtle bg-surface/80 backdrop-blur-xl">
+		<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+			<a href="/" class="flex items-center gap-2 text-lg font-bold">
+				<span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-sm font-black text-white">P</span>
+				PluginsforEmDash
+			</a>
+		</div>
+	</nav>
+
+	<section class="py-20">
+		<div class="mx-auto max-w-2xl px-6 text-center">
+			<div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-500/10">
+				<svg class="h-8 w-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+			</div>
+			<h1 class="text-3xl font-bold tracking-tight">Payment successful!</h1>
+			<p class="mt-4 text-lg text-text-secondary">
+				Your Pro license key will be emailed to you shortly. Paste it into the plugin settings in your EmDash admin panel to activate.
+			</p>
+
+			<div class="mt-8 rounded-xl border border-border-default bg-surface-raised p-6 text-left">
+				<h2 class="font-semibold mb-3">Next steps:</h2>
+				<ol class="space-y-3 text-sm text-text-secondary">
+					<li class="flex gap-3">
+						<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-600 text-xs font-bold text-white">1</span>
+						Check your email for the license key
+					</li>
+					<li class="flex gap-3">
+						<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-600 text-xs font-bold text-white">2</span>
+						Go to your EmDash admin panel &rarr; Plugin Settings
+					</li>
+					<li class="flex gap-3">
+						<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-600 text-xs font-bold text-white">3</span>
+						Paste the license key and save
+					</li>
+					<li class="flex gap-3">
+						<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-600 text-xs font-bold text-white">4</span>
+						Pro features are now active!
+					</li>
+				</ol>
+			</div>
+
+			<a href="/" class="mt-8 inline-block rounded-xl bg-brand-600 px-8 py-3 font-semibold text-white hover:bg-brand-500 transition-colors">
+				Back to Home
+			</a>
+		</div>
+	</section>
+</Layout>
