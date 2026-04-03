@@ -1,0 +1,74 @@
+---
+import Layout from "../../layouts/Layout.astro";
+export const prerender = false;
+---
+
+<Layout title="Live Demos — Plugins for EmDash" description="See our plugins and themes in action before you install.">
+	<nav class="border-b border-border-subtle bg-surface/80 backdrop-blur-xl">
+		<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+			<a href="/" class="flex items-center gap-2 text-lg font-bold">
+				<span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-sm font-black text-white">P</span>
+				PluginsforEmDash
+			</a>
+			<div class="flex items-center gap-6">
+				<a href="/" class="text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
+				<a href="/demo" class="text-sm text-text-primary font-medium">Demos</a>
+			</div>
+		</div>
+	</nav>
+
+	<section class="py-20">
+		<div class="mx-auto max-w-4xl px-6">
+			<h1 class="text-4xl font-bold tracking-tight text-center">Live Demos</h1>
+			<p class="mt-4 text-center text-lg text-text-secondary">See everything in action before you install.</p>
+
+			<div class="mt-16 grid gap-8 sm:grid-cols-2">
+				<!-- Commerce Store Demo -->
+				<a href="/demo/store" class="group rounded-2xl border border-border-default bg-surface-raised p-8 transition-all hover:border-brand-600/50 hover:shadow-lg">
+					<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-500/10 text-green-400">
+						<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+					</div>
+					<h2 class="text-xl font-semibold mb-2">Commerce Storefront</h2>
+					<p class="text-text-secondary text-sm mb-4">Browse a live store with 13 products, category filtering, cart, checkout, and 30+ DaisyUI themes. This is what your customers see.</p>
+					<span class="text-sm font-medium text-brand-400 group-hover:text-brand-300">View Live Store &rarr;</span>
+				</a>
+
+				<!-- Commerce Admin Demo -->
+				<a href="/demo/admin" class="group rounded-2xl border border-border-default bg-surface-raised p-8 transition-all hover:border-brand-600/50 hover:shadow-lg">
+					<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-600/10 text-brand-400">
+						<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+					</div>
+					<h2 class="text-xl font-semibold mb-2">Commerce Admin Panel</h2>
+					<p class="text-text-secondary text-sm mb-4">See the native React admin — product management, orders, customers, discounts, shipping zones, licenses, and analytics. This is what you manage.</p>
+					<span class="text-sm font-medium text-brand-400 group-hover:text-brand-300">View Admin Demo &rarr;</span>
+				</a>
+
+				<!-- Forms Demo -->
+				<a href="/demo/forms" class="group rounded-2xl border border-border-default bg-surface-raised p-8 transition-all hover:border-brand-600/50 hover:shadow-lg">
+					<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/10 text-purple-400">
+						<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+					</div>
+					<h2 class="text-xl font-semibold mb-2">Forms Plugin</h2>
+					<p class="text-text-secondary text-sm mb-4">Try a live contact form powered by the Forms plugin. See how submissions, spam protection, and webhooks work.</p>
+					<span class="text-sm font-medium text-brand-400 group-hover:text-brand-300">Try Live Form &rarr;</span>
+				</a>
+
+				<!-- Theme Switcher Demo -->
+				<a href="/demo/themes" class="group rounded-2xl border border-border-default bg-surface-raised p-8 transition-all hover:border-brand-600/50 hover:shadow-lg">
+					<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400">
+						<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+					</div>
+					<h2 class="text-xl font-semibold mb-2">30+ Themes</h2>
+					<p class="text-text-secondary text-sm mb-4">Preview every DaisyUI theme on the store. Light, dark, cyberpunk, retro, lofi — one click to switch. Your customers choose their look.</p>
+					<span class="text-sm font-medium text-brand-400 group-hover:text-brand-300">Browse Themes &rarr;</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<footer class="border-t border-border-subtle py-8">
+		<div class="text-center text-sm text-text-muted">
+			<a href="/" class="hover:text-text-secondary">Back to Home</a>
+		</div>
+	</footer>
+</Layout>

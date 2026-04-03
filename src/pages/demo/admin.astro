@@ -1,0 +1,98 @@
+---
+import Layout from "../../layouts/Layout.astro";
+export const prerender = false;
+const demoUrl = "https://demo.pluginsforemdash.com/_emdash/admin";
+---
+
+<Layout title="Commerce Admin Demo — Plugins for EmDash" description="See the native React admin panel for the Commerce plugin.">
+	<nav class="border-b border-border-subtle bg-surface/80 backdrop-blur-xl">
+		<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+			<a href="/" class="flex items-center gap-2 text-lg font-bold">
+				<span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-sm font-black text-white">P</span>
+				PluginsforEmDash
+			</a>
+			<div class="flex items-center gap-6">
+				<a href="/demo" class="text-sm text-text-secondary hover:text-text-primary transition-colors">All Demos</a>
+				<a href="/buy?product=commerce-pro" class="rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-white hover:bg-brand-500 transition-colors">Get Commerce</a>
+			</div>
+		</div>
+	</nav>
+
+	<section class="py-16">
+		<div class="mx-auto max-w-5xl px-6">
+			<div class="text-center mb-12">
+				<span class="rounded-full bg-brand-600/10 px-3 py-1 text-xs font-medium text-brand-400 mb-4 inline-block">Admin Panel</span>
+				<h1 class="text-4xl font-bold tracking-tight">Commerce Admin</h1>
+				<p class="mt-4 text-lg text-text-secondary max-w-2xl mx-auto">A native React admin built with EmDash's Kumo UI. Manage your entire store from one panel.</p>
+			</div>
+
+			<!-- Admin pages showcase -->
+			<div class="space-y-6">
+				<div class="rounded-2xl border border-border-default bg-surface-raised overflow-hidden">
+					<div class="border-b border-border-default bg-surface-overlay px-6 py-3">
+						<h3 class="font-semibold">Dashboard</h3>
+					</div>
+					<div class="p-6">
+						<p class="text-text-secondary mb-4">Revenue stats, order count, product count, customer count. Low-stock alerts and processing order notifications. Recent orders table.</p>
+						<div class="grid grid-cols-4 gap-4">
+							<div class="rounded-lg bg-surface p-4 text-center">
+								<div class="text-2xl font-bold text-brand-400">$1,249</div>
+								<div class="text-xs text-text-muted">Revenue</div>
+							</div>
+							<div class="rounded-lg bg-surface p-4 text-center">
+								<div class="text-2xl font-bold">23</div>
+								<div class="text-xs text-text-muted">Orders</div>
+							</div>
+							<div class="rounded-lg bg-surface p-4 text-center">
+								<div class="text-2xl font-bold">13</div>
+								<div class="text-xs text-text-muted">Products</div>
+							</div>
+							<div class="rounded-lg bg-surface p-4 text-center">
+								<div class="text-2xl font-bold">18</div>
+								<div class="text-xs text-text-muted">Customers</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="grid gap-6 sm:grid-cols-2">
+					<div class="rounded-2xl border border-border-default bg-surface-raised p-6">
+						<h3 class="font-semibold mb-3">Products</h3>
+						<p class="text-sm text-text-secondary">Add/edit products with WooCommerce-style forms. Name, description, pricing, inventory, shipping weight, SEO, variants. Image URLs. Activate/draft/archive.</p>
+					</div>
+					<div class="rounded-2xl border border-border-default bg-surface-raised p-6">
+						<h3 class="font-semibold mb-3">Orders</h3>
+						<p class="text-sm text-text-secondary">Full order lifecycle: pending, paid, processing, shipped, delivered, cancelled, refunded. One-click status changes. Stripe refunds. Order timeline.</p>
+					</div>
+					<div class="rounded-2xl border border-border-default bg-surface-raised p-6">
+						<h3 class="font-semibold mb-3">Customers</h3>
+						<p class="text-sm text-text-secondary">Auto-created from orders. Name, email, order count, lifetime spend, last order date. Track your best customers.</p>
+					</div>
+					<div class="rounded-2xl border border-border-default bg-surface-raised p-6">
+						<h3 class="font-semibold mb-3">Discounts</h3>
+						<p class="text-sm text-text-secondary">Percentage, fixed amount, or free shipping codes. Usage limits, expiration dates, product restrictions.</p>
+					</div>
+					<div class="rounded-2xl border border-border-default bg-surface-raised p-6">
+						<h3 class="font-semibold mb-3">Shipping & Tax</h3>
+						<p class="text-sm text-text-secondary">Shipping zones by country with flat rate, weight-based, or free shipping methods. Per-country/state tax rules.</p>
+					</div>
+					<div class="rounded-2xl border border-border-default bg-surface-raised p-6">
+						<h3 class="font-semibold mb-3">Licenses</h3>
+						<p class="text-sm text-text-secondary">Auto-generated on digital product purchase. Unique keys (PFE-XXXXX-XXXXX-XXXXX-XXXXX). Revoke from admin. Verify via API.</p>
+					</div>
+				</div>
+
+				<div class="rounded-2xl border border-border-default bg-surface-raised p-6">
+					<h3 class="font-semibold mb-3">Settings</h3>
+					<p class="text-sm text-text-secondary">Stripe API keys, site URL, store name, currency, notification email, Pro license key. Everything in one place.</p>
+				</div>
+			</div>
+
+			<div class="mt-12 text-center">
+				<a href="/buy?product=commerce-pro" class="inline-block rounded-xl bg-brand-600 px-8 py-3.5 font-semibold text-white shadow-lg shadow-brand-600/25 hover:bg-brand-500 transition-all">
+					Get Commerce Pro — $29/mo
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
