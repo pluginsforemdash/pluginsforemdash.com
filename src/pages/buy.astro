@@ -99,7 +99,7 @@ export const prerender = false;
 			return id;
 		}
 
-		const sessionId = getSessionId();
+		let sessionId = getSessionId();
 		const params = new URLSearchParams(window.location.search);
 		const requestedSlug = params.get("product");
 
@@ -130,8 +130,11 @@ export const prerender = false;
 					const product = products.find(p => p.slug === requestedSlug);
 					if (product) {
 						showDirectCheckout(product);
-						// Auto-add to cart
-						api("storefront/cart/add", { sessionId, productId: product.id, quantity: 1 }).catch(() => {});
+						// Fresh cart with just this product — clear old session first
+					localStorage.removeItem(SESSION_KEY);
+					sessionId = crypto.randomUUID();
+					localStorage.setItem(SESSION_KEY, sessionId);
+					api("storefront/cart/add", { sessionId, productId: product.id, quantity: 1 }).catch(() => {});
 						return;
 					}
 				}
